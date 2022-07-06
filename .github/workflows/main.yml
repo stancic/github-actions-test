@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - id: foo
-        uses: stancic/github-actions-test/hello-world-composite-action@v1
+        uses: ./hello-world-composite-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
