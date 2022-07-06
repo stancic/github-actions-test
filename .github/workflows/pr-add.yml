@@ -12,6 +12,6 @@ jobs:
     name: Close PR if there is no description
     steps: 
       - name: What PR contains
-        run: cat ${{ github.event }}
+        run: echo ${{ github.event.pull_request }}
         shell: bash
 
