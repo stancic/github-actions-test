@@ -1,4 +1,4 @@
-name: 'Check if PR contains description'
+name: 'Check if PR has description'
 
 on: 
   pull_request:
@@ -8,6 +8,7 @@ on:
 
 jobs: 
   no_description_pr:
+    name: 'Check if PR has description'
     runs-on: ubuntu-latest
     steps: 
       - if: ${{ github.event.pull_request.body == null }}

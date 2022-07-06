@@ -1,4 +1,4 @@
-name: 'Check if issue contains description'
+name: 'Check if issue has description'
 
 on: 
   issues:
@@ -7,7 +7,8 @@ on:
       - reopened
 
 jobs: 
-  no_description_pr:
+  no_issue_description:
+    name: 'Check if issue has description'
     runs-on: ubuntu-latest
     steps: 
       - if: ${{ github.event.issue.body == null }}
