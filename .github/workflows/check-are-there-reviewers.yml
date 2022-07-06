@@ -1,0 +1,19 @@
+name: 'Check if PR has at least one reviewer'
+
+on: 
+  pull_request:
+    types: 
+      - opened
+      - reopened
+      - edited
+      - assigned
+
+jobs: 
+  no_description_pr:
+    name: 'Check if PR has at least one reviewer'
+    if: github.event.pull_request.requested_reviewers != '[]'  
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Set PR draft if there are no reviewers
+        uses: voiceflow/daft-pr@latest
+
