@@ -12,6 +12,8 @@ jobs:
     name: Close PR if there is no description
     steps: 
       - name: What PR contains
-        run: echo ${{ github.event.pull_request }}
+        env: 
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
         shell: bash
 
