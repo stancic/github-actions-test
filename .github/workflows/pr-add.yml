@@ -1,7 +1,7 @@
 name: 'Check if PR contains description'
 
 on: 
-  pull_request_target:
+  pull_request:
     types: 
       - opened
       - reopened
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Close PR if there is no description
     steps: 
-      - uses: superbrothers/close-pull-request@v3
+      - uses: peter-evans/close-pull@v2
         with:
           comment: "Please provide a description of an issue you're solving or feature you're implementing."
 
