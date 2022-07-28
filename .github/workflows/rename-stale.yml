@@ -12,23 +12,12 @@ on:
   label:
 
 permissions:
-  issues: write
   pull-requests: write
 
-env:
-  SOMETHING: ${{ github.event.pull_request }}
-
 jobs:
-  print_something: 
-    name: 'Print github value'
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Print step'
-        run: echo "$SOMETHING"
-    
   add_stale_tag_to_title:
     name: 'Add stale tag to tile if label has changed'
-    if: "contains(github.event.pull_request.labels.*.name, 'stale')"
+    if: github.event.label.name == 'stale'
     runs-on: ubuntu-latest
     steps:
       - uses: tzkhan/pr-update-action@v2
@@ -38,7 +27,7 @@ jobs:
 
   remove_stale_tag_from_title:
     name: 'Remove stale tag to tile if label has changed'
-    if: "!contains(github.event.pull_request.labels.*.name, 'stale')"
+    if: github.event.label.name != 'stale'
     runs-on: ubuntu-latest
     steps: 
       - uses: tzkhan/pr-update-action@v2
