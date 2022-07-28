@@ -9,25 +9,22 @@ name: 'Rename stale'
 
 on: 
   pull_request:
-    types:
-      - labeled
-      - unlabeled
-      - edited
-      - review_requested
-      - ready_for_review
-      - reopened
-
   label:
-    types:
-      - created
-      - edited
-      - deleted
 
 permissions:
   issues: write
   pull-requests: write
 
+env:
+  SOMETHING: ${{ github.event.pull_request }}
+
 jobs:
+  print_something: 
+    name: 'Print github value'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$SOMETHING"
+    
   add_stale_tag_to_title:
     name: 'Add stale tag to tile if label has changed'
     if: "contains(github.event.pull_request.labels.*.name, 'stale')"
