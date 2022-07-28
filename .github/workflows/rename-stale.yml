@@ -46,4 +46,4 @@ jobs:
         with:
           base-branch-regex: '[a-zA-Z\d-_.\\/]+'
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          title-template: " "
+          title-template: "X"
