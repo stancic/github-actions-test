@@ -12,9 +12,13 @@ development:
   - pages/*
   - public/*
   - styles/*
+  - .github/*
 
 styling-only:
   - styles/*
 
 module-functionality:
   - modules/*
+
+devops:
+  - .github/.
