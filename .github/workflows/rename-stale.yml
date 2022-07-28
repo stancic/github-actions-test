@@ -8,6 +8,7 @@ name: 'Rename stale'
 #    - All developers.
 
 on: 
+  push:
   pull_request:
     types:
       - labeled
