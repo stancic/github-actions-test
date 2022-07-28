@@ -38,7 +38,7 @@ jobs:
 
   remove_stale_tag_from_title:
     name: 'Remove stale tag to tile if label has changed'
-    if: github.event.label.name != 'stale'
+    if: "!contains(github.event.pull_request.labels.*.name, 'stale')"
     runs-on: ubuntu-latest
     steps: 
       - uses: tzkhan/pr-update-action@v2
