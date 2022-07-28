@@ -1,0 +1,20 @@
+# Add new tags if needed
+
+# Format:
+# tag-name:
+#   - path/to/folder/*
+#   - path/*
+
+
+development:
+  - modules/*
+  - shared/*
+  - pages/*
+  - public/*
+  - styles/*
+
+styling-only:
+  - styles/*
+
+module-functionality:
+  - modules/*

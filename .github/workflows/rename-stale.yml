@@ -1,0 +1,49 @@
+name: 'Rename stale'
+
+# ** What it does? **
+#    - Check PRs and if they're stale, rename them.
+# ** Why we have it? **
+#    - To easily know which PR is marked as stale.
+# ** Who does it impact? **
+#    - All developers.
+
+on: 
+  pull_request:
+    types:
+      - labeled
+      - unlabeled
+      - edited
+      - review_requested
+      - ready_for_review
+      - reopened
+
+  label:
+    types:
+      - created
+      - edited
+      - deleted
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  add_stale_tag_to_title:
+    name: 'Add stale tag to tile if label has changed'
+    if: "contains(github.event.pull_request.labels.*.name, 'stale')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tzkhan/pr-update-action@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          title-template: "[STALE] "
+
+  remove_stale_tag_from_title:
+    name: 'Remove stale tag to tile if label has changed'
+    if: "!contains(github.event.pull_request.labels.*.name, 'stale')"
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: tzkhan/pr-update-action@v2
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          title-template: ""
