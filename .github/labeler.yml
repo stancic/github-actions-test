@@ -21,4 +21,4 @@ module-functionality:
   - modules/*
 
 devops:
-  - .github/.
+  - .github/*
