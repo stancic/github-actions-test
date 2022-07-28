@@ -10,8 +10,7 @@ name: 'Stale check'
 
 on: 
   schedule:
-    - cron: '*/5 * * * *' # Run every 5 minutes
-    
+    - cron: '05 13 * * *' # Run each day at 16:00 UTC -> 18:00 CEST (Croatia)
 
 permissions:
   issues: write
