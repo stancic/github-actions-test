@@ -23,7 +23,8 @@ jobs:
     name: 'Print github value'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "$SOMETHING"
+      - name: 'Print step'
+        run: echo "$SOMETHING"
     
   add_stale_tag_to_title:
     name: 'Add stale tag to tile if label has changed'
