@@ -22,5 +22,17 @@ jobs:
       - uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+  
+  notify:
+    env:
+      PRODUCTION_URL: "test" # Add url of firebase hosting project
+    if: github.event.workflow.action.completed
+    runs-on: ubuntu-latest
+    steps: 
+      - name: 'Notify about successful deployment'
+        uses: github-actions-up-and-running/pr-comment@v1.0.0
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          message: 'Deploy to firebase hosting was successful. You can check your application here: ${{ env.PRODUCTION_URL }}'
 
     
