@@ -28,8 +28,8 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Assign users based on the labels in the assignee4label.yml'
-        uses: murs313/request-review@v1.0
         run: echo ${{ toJSON(github.event.pull_request )}}
+        uses: murs313/request-review@v1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           reviewers: 'dinostancic'
