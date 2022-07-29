@@ -28,5 +28,3 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
         - uses: voiceflow/draft-pr@latest
-          with: 
-            token: ${{ secrets.GITHUB_TOKEN }}
