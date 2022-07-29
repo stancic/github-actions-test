@@ -26,18 +26,32 @@ jobs:
         uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-    
-  assign_users_to_pr:
-    name: 'Assign users for devops labels'
-    # if: contains(github.event.issue.labels.*.name, 'devops')
-    runs-on: ubuntu-latest
-    steps:
-      - name: 'Assign users'
+      
+      - name: 'Assign vlaja'
+        if: contains(github.event.pull_request.user.login, 'stancic')
         run: echo "This PR is opened by ${{ github.event.pull_request.user.login }} ."
         # uses: murs313/request-review@v1.0
         # with:
         #   token: ${{ secrets.GITHUB_TOKEN }}
         #   reviewers: 'dinostancic'
+
+      - name: 'Assign stancic'
+        if: contains(github.event.pull_request.user.login, 'vlaja')
+        run: echo "This PR is opened by vlaja."
+        # uses: murs313/request-review@v1.0
+        # with:
+        #   token: ${{ secrets.GITHUB_TOKEN }}
+        #   reviewers: 'dinostancic'
+
+      - name: 'Assign both vlaja and stancic'
+        if: "!contains(github.event.pull_request.user.login, 'stancic') && !contains(github.event.pull_request.user.login, 'vlaja')"
+        run: echo "This PR wasn't opened nor by vlaja nor by stancic."
+        # uses: murs313/request-review@v1.0
+        # with:
+        #   token: ${{ secrets.GITHUB_TOKEN }}
+        #   reviewers: 'dinostancic'  
+
+      
 
 
 
