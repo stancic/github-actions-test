@@ -12,6 +12,7 @@ on:
     types:
       - edited
       - opened
+      - reopened
     
 permissions:
   pull-requests: write
