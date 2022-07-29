@@ -28,9 +28,12 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Assign users for devops labels'
-        # if: contains(github.event.pull_request.labels.*.name, 'devops')
-        run: echo ${{ toJSON(github.event.pull_request) }}
+        # if: contains(github.event.pull_request.labels, 'devops')
+        run: echo ${{ toJSON(github.event.pull_request.labels) }}
         # uses: murs313/request-review@v1.0
         # with:
         #   token: ${{ secrets.GITHUB_TOKEN }}
         #   reviewers: 'dinostancic'
+
+
+
