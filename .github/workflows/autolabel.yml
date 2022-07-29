@@ -27,8 +27,9 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 'Assign users based on the labels in the assignee4label.yml'
-        run: echo ${{ toJSON(github.event.pull_request )}}
+      - name: 'Assign users for devops labels'
+        if: contains(github.event.pull_request.labels.*.name, 'devops')
+        run: echo 'Sadrzi devops'
         uses: murs313/request-review@v1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
