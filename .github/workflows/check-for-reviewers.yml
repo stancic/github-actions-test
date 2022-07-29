@@ -10,11 +10,7 @@ name: 'Check if PR has at least one reviewer'
 
 on: 
   pull_request:
-    types: 
-      - opened
-      - reopened
-      - edited
-      - assigned
+
 
 permissions:
   issues: write
