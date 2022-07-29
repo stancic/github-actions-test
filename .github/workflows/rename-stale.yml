@@ -8,9 +8,6 @@ name: 'Rename stale'
 #    - All developers.
 
 on: 
-  schedule:
-    - cron: '15 13 * * *' # Run each day at 16:00 UTC -> 18:00 CEST (Croatia)
-
   push:
   pull_request:
     types:
