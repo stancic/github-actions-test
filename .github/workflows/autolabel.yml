@@ -22,15 +22,16 @@ jobs:
       DEVELOPMENT_URL: 'test url'
     steps:
       - name: 'Label'
+        id: 'labeling'
         uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Notify about successful deployment'
-        if: github.event.workflow_job.workflow_job.steps[0].status == 'completed'
-        uses: JoseThen/comment-pr@v1.1.1
-        with:
-          comment: 'This PR is the best ${{ env.DEVELOPMENT_URL }}'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "${{ steps.labeling }}"
+        # uses: JoseThen/comment-pr@v1.1.1
+        # with:
+        #   comment: 'This PR is the best ${{ env.DEVELOPMENT_URL }}'
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     
