@@ -28,10 +28,10 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Notify about successful deployment'
-        run: echo "${{ toJSON(steps.labeling) }}"
-        # uses: JoseThen/comment-pr@v1.1.1
-        # with:
-        #   comment: 'This PR is the best ${{ env.DEVELOPMENT_URL }}'
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: steps.labeling.outcome == 'success'
+        uses: JoseThen/comment-pr@v1.1.1
+        with:
+          comment: 'This PR is the best ${{ env.DEVELOPMENT_URL }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     
