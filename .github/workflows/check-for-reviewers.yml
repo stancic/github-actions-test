@@ -16,6 +16,9 @@ on:
       - edited
       - assigned
 
+permissions:
+  pull-requests: write
+
 jobs: 
   pr_reviewer_check:
     name: 'Check if PR has at least one reviewer'

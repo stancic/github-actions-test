@@ -14,6 +14,9 @@ on:
       - reopened
       - edited
 
+permissions:
+  pull-requests: write
+
 jobs: 
   pr_description_check:
     name: 'Check if PR has no description'
