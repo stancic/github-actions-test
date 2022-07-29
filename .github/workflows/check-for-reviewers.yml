@@ -28,4 +28,3 @@ jobs:
         - uses: voiceflow/draft-pr@latest
           with: 
             token: ${{ secrets.GITHUB_TOKEN }}
-            pull-request-node-id: github.event.pull_request.head.repo.node_id
