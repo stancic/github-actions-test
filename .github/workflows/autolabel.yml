@@ -18,16 +18,17 @@ jobs:
   label_pull_request:
     name: 'Add labels to pull request'
     runs-on: ubuntu-latest
+    env:
+      DEVELOPMENT_URL: 'test url'
     steps:
       - uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Notify about successful deployment'
-        uses: github-actions-up-and-running/pr-comment@v1.0.0
+        uses: JoseThen/comment-pr@v1.1.1
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          message: 'Deploy to firebase hosting was successful. You can check your application here: ${{ env.PRODUCTION_URL }}'
-  
+          comment: 'This PR is the best ${{ env.DEVELOPMENT_URL }}'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     
