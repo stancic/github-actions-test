@@ -10,7 +10,6 @@ name: 'Assign PR to person who created it'
 on: 
   pull_request:
     types:
-      - edited
       - opened
       - reopened
     
@@ -20,7 +19,6 @@ permissions:
 jobs:
   asssign_pr:
     name: 'Assign PR to person who created it'
-    if: "!contains(github.event.pull_request.assignees, [])"
     runs-on: ubuntu-latest
     steps:
       - name: 'Assign PR to person who created it'
