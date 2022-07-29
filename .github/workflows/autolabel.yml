@@ -26,9 +26,9 @@ jobs:
         uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: 'Assign users based on the labels in the assignee4label.yml'
-        uses: kyanagimoto/assignee4label@main
+        uses: murs313/request-review@v1.0
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          configuration-path: '.github/assignee4label.yml'        
+          token: ${{ secrets.GITHUB_TOKEN }}
+          reviewers: 'stancic'
