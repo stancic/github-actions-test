@@ -26,12 +26,9 @@ jobs:
         uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 'Notify about successful deployment'
-        if: steps.labeling.outcome == 'success'
-        uses: JoseThen/comment-pr@v1.1.1
+          
+      - name: 'Assign users based on the labels in the assignee4label.yml'
+        uses: kyanagimoto/assignee4label@main
         with:
-          comment: 'This PR is the best ${{ env.DEVELOPMENT_URL }}'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          configuration-path: '.github/assignee4label.yml'        
