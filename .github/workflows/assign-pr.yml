@@ -9,6 +9,9 @@ name: 'Assign PR to person who created it'
 
 on: 
   pull_request:
+    types:
+      - edited
+      - opened
     
 permissions:
   pull-requests: write
