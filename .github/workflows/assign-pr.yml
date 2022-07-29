@@ -9,6 +9,8 @@ name: 'Assign PR to person who created it'
 
 on: 
   pull_request:
+    types:
+      - opened
     
 permissions:
   pull-requests: write
@@ -18,4 +20,4 @@ jobs:
     name: 'Assign PR to person who created it'
     runs-on: ubuntu-latest
     steps:
-      - uses: augustohp/github-action-pr-assignee
+      - uses: augustohp/github-action-pr-assignee@v1.0.1
