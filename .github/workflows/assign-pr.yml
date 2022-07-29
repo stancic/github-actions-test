@@ -16,6 +16,7 @@ permissions:
 jobs:
   asssign_pr:
     name: 'Assign PR to person who created it'
+    if: github.event.pull_request.assignees != []
     runs-on: ubuntu-latest
     steps:
       - name: 'Assign PR to person who created it'
