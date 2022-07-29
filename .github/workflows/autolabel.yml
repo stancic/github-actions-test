@@ -28,9 +28,7 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 'Notify about successful deployment'
-        env:
-          JSON: fromJSON(steps.labeling)
-        run: echo "${{ env.JSON }}"
+        run: echo "${{ toJSON(steps.labeling) }}"
         # uses: JoseThen/comment-pr@v1.1.1
         # with:
         #   comment: 'This PR is the best ${{ env.DEVELOPMENT_URL }}'
