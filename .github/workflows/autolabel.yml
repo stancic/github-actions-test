@@ -23,8 +23,7 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - if: github.event.workflow.action.completed
-        name: 'Notify about successful deployment'
+      - name: 'Notify about successful deployment'
         uses: github-actions-up-and-running/pr-comment@v1.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
