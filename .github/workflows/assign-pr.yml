@@ -19,4 +19,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Assign PR to person who created it'
-        uses: augustohp/github-action-pr-assignee@v1.0.1
+        uses: augustohp/github-action-pr-assignee@master
