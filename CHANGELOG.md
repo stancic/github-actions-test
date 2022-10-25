@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.0.3 - 2022-10-25
+
+### What's Changed
+
+- Change script by @stancic in https://github.com/stancic/github-actions-test/pull/12
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/v1.0.2...v1.0.3
+
 ## v1.0.2 - 2022-10-25
 
 ### What's Changed
