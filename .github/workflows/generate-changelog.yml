@@ -28,6 +28,23 @@ jobs:
           # is not out of date.
           ref: ${{ github.event.release.target_commitish }}
 
+      - name: Check CHANGELOG.md existence
+        id: check_files
+        uses: andstor/file-existence-action@v2
+        with:
+          files: "CHANGELOG.md"
+
+      - name: Create CHANGELOG.md
+        if: steps.check_files.outputs.files_exists == 'false'
+        # Only runs if CHANGELOG.md doesn't exist
+        uses: 1arp/create-a-file-action@0.2
+        with:
+          path: '.'
+          file: 'CHANGELOG.md'
+          content: |
+            # Changelog
+      
+
       - name: Extract release date from git tag
         id: release_date
         run: |
