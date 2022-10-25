@@ -3,7 +3,7 @@ name: "Generate changelog"
 # ** What it does? **
 #    - Generate changelogs for each release.
 # ** Why we have it? **
-#    - To have the consistent Changelog.MD file in our repository.
+#    - To have the consistent CHANGELOG.md file in our repository.
 # ** Who does it impact? **
 #    - All contributors.
 
