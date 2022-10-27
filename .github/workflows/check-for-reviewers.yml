@@ -25,4 +25,4 @@ jobs:
       - name: Install JQ
         run: sudo apt install -y jq
       - name: Set PR draft if there are no reviewers
-        uses: voiceflow/daft-pr@latest
+        uses: voiceflow/draft-pr@latest
