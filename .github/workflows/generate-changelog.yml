@@ -10,7 +10,7 @@ name: "Generate changelog"
 on:
   release:
     types: 
-      - released
+      - published
 
 jobs:
   update:
@@ -50,13 +50,22 @@ jobs:
         run: |
           echo "::set-output name=date::$(git log -1 --date=short --format=%ad '${{ github.event.release.tag_name }}')"
 
+      - name: Extract release version from git tag
+        id: release_version
+        env:
+          RELEASE_TAG_NAME: github.event.release.tag_name
+        run: |
+          release_tag_parts = env.RELEASE_TAG_NAME.split("-")
+          release_version = release_tag_parts[1]
+          echo "::set-output name=release_version::$release_version"
+
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
           # Pass extracted release date, release notes and version to the Action.
           release-date: ${{ steps.release_date.outputs.date }}
           release-notes: ${{ github.event.release.body }}
-          latest-version: '[${{ github.event.release.tag_name }}]'
+          latest-version: '[${{ github.release_version.outputs.release_version }}]'
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
 
       - name: Commit updated CHANGELOG
