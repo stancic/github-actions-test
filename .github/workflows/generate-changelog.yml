@@ -70,6 +70,9 @@ jobs:
           release-notes: ${{ steps.parse_release_body.outputs.release_body }}
           latest-version: '[${{ steps.release_version.outputs.release_version }}]'
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
+      
+      - name: Parse Changelog
+        run: sed -ie "/What's Changed/,+1 d" -ie "/Full Changelog/,+1 d" -ire "/\W{4}New Contributors/d"  CHANGELOG.md
 
       - name: Commit updated CHANGELOG
         uses: stefanzweifel/git-auto-commit-action@v4
