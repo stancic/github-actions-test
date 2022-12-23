@@ -1,5 +1,13 @@
 # Changelog
 
+## [github.event.release.tag_name] - 2022-12-23
+
+### What's Changed
+
+- Change action by @stancic in https://github.com/stancic/github-actions-test/pull/17
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/live-1.0.0...live-1.0.1
+
 ## [v1.0.4] - 2022-10-25
 
 ### What's Changed
