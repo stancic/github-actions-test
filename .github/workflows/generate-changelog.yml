@@ -61,7 +61,7 @@ jobs:
         with:
           # Pass extracted release date, release notes and version to the Action.
           release-date: ${{ steps.release_date.outputs.date }}
-          release-notes: ${{ steps.parse_release_body.outputs.release_body }}
+          release-notes: ${{ github.event.release.body }}
           latest-version: '[${{ steps.release_version.outputs.release_version }}]'
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
       
