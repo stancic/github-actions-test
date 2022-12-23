@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2] - 2022-12-23
+
+### What's Changed
+
+- Change env variable by @stancic in https://github.com/stancic/github-actions-test/pull/18
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/live-1.0.1...live-1.0.2
+
 ## [github.event.release.tag_name] - 2022-12-23
 
 ### What's Changed
