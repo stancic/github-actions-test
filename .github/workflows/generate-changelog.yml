@@ -54,10 +54,7 @@ jobs:
         id: release_version
         env:
           RELEASE_TAG_NAME: github.event.release.tag_name
-        run: |
-          release_tag_parts = env.RELEASE_TAG_NAME.split("-")
-          release_version = release_tag_parts[1]
-          echo "::set-output name=release_version::$release_version"
+        run: echo "::set-output name=release_version::${RELEASE_TAG_NAME##*-}"
 
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
