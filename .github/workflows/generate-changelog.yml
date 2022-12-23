@@ -56,12 +56,6 @@ jobs:
           RELEASE_TAG_NAME: ${{github.event.release.tag_name}}
         run: echo "::set-output name=release_version::${RELEASE_TAG_NAME##*-}"
       
-      - name: Parse release body
-        id: parse_release_body
-        env:
-          RELEASE_BODY: ${{ github.event.release.body }}
-        run: echo "::set-output name=release_body::$(sed -e "/What's Changed/,+1 d" -e "/Full Changelog/,+1 d" -re "/\W{4}New Contributors/d" ${{ env.RELEASE_BODY }})
-
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
