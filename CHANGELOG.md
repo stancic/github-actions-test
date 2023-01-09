@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.13] - 2023-01-09
+
+- Gimme changes by @stancic in https://github.com/stancic/github-actions-test/pull/29
+
 ## [1.0.12] - 2023-01-09
 
 - Change regex by @stancic in https://github.com/stancic/github-actions-test/pull/28
