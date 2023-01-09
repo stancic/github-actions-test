@@ -14,6 +14,7 @@ on:
 
 jobs:
   update:
+    if: contains(${{ github.event.release.tag_name }}, 'live')
     name: 'Generate changelog'
     runs-on: ubuntu-latest
 
@@ -64,7 +65,7 @@ jobs:
           regex: '\#{2}\s\b.*'
           replacement: ""
 
-      - name: Remove full changelog from release notes
+      - name: Remove trailing full changelog link from release notes
         id: clean_release_notes
         uses: ashley-taylor/regex-property-action@v1.3
         with:
@@ -75,7 +76,7 @@ jobs:
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
-          # Pass extracted release date, release notes and version to the Action.
+          # Pass parsed release date, release notes and version to the Action.
           release-date: ${{ steps.release_date.outputs.date }}
           release-notes: ${{ steps.clean_release_notes.outputs.value }}
           latest-version: '[${{ steps.release_version.outputs.release_version }}]'
