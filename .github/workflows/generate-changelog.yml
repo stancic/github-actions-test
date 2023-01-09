@@ -62,17 +62,15 @@ jobs:
         with:
           value: ${{ github.event.release.body }}
           regex: '\#{2}\s\b.*'
-          flags: "" # Optional, defaults to "g"
           replacement: ""
 
-      # - name: Remove full changelog from release notes
-      #   id: clean_release_notes
-      #   uses: ashley-taylor/regex-property-action@v1.3
-      #   with:
-      #     value: ${{ steps.removed_titles.outputs.value }}
-      #     regex: '(.\*.*)'
-      #     flags: "" # Optional, defaults to "g"
-      #     replacement: ""
+      - name: Remove full changelog from release notes
+        id: clean_release_notes
+        uses: ashley-taylor/regex-property-action@v1.3
+        with:
+          value: ${{ steps.removed_titles.outputs.value }}
+          regex: '(.\*.*)'
+          replacement: ""
       
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
