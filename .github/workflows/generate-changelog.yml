@@ -61,7 +61,7 @@ jobs:
         uses: ashley-taylor/regex-property-action@v1.3
         with:
           value: ${{ github.event.release.body }}
-          regex: '(.#.\s\b.*)'
+          regex: '\#{3}\s\b.*'
           flags: "" # Optional, defaults to "g"
           replacement: ""
 
