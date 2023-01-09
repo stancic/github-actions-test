@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.11] - 2023-01-09
+
+### What's Changed
+
+- Add some frigging chagnes by @stancic in https://github.com/stancic/github-actions-test/pull/27
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/live-1.0.10...live-1.0.11
+
 ## [1.0.10] - 2023-01-09
 
 ### What's Changed
