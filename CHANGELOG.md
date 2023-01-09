@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.12] - 2023-01-09
+
+- Change regex by @stancic in https://github.com/stancic/github-actions-test/pull/28
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/live-1.0.11...live-1.0.12
+
 ## [1.0.11] - 2023-01-09
 
 ### What's Changed
