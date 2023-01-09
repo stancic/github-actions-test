@@ -14,7 +14,7 @@ on:
 
 jobs:
   update:
-    if: contains(${{ github.event.release.tag_name }}, 'live')
+    if: contains(github.event.release.tag_name, 'live')
     name: 'Generate changelog'
     runs-on: ubuntu-latest
 
