@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.10] - 2023-01-09
+
+### What's Changed
+
+- Cleanup by @stancic in https://github.com/stancic/github-actions-test/pull/26
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/live-1.0.9...live-1.0.10
+
 ## [1.0.9] - 2023-01-09
 
 ### What's Changed
