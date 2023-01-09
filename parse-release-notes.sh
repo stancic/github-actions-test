@@ -1,0 +1,1 @@
+sed -e "/What's Changed/,+1 d" CHANGELOG.md
