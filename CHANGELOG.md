@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.9] - 2023-01-09
+
+### What's Changed
+
+- Change changelog action by @stancic in https://github.com/stancic/github-actions-test/pull/25
+
 ## [1.0.8] - 2023-01-09
 
 ### What's Changed
