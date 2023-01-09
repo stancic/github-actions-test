@@ -65,21 +65,21 @@ jobs:
           flags: "" # Optional, defaults to "g"
           replacement: ""
 
-      - name: Remove full changelog from release notes
-        id: clean_release_notes
-        uses: ashley-taylor/regex-property-action@v1.3
-        with:
-          value: ${{ steps.removed_titles.outputs.value }}
-          regex: '(.\*.*)'
-          flags: "" # Optional, defaults to "g"
-          replacement: ""
+      # - name: Remove full changelog from release notes
+      #   id: clean_release_notes
+      #   uses: ashley-taylor/regex-property-action@v1.3
+      #   with:
+      #     value: ${{ steps.removed_titles.outputs.value }}
+      #     regex: '(.\*.*)'
+      #     flags: "" # Optional, defaults to "g"
+      #     replacement: ""
       
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
           # Pass extracted release date, release notes and version to the Action.
           release-date: ${{ steps.release_date.outputs.date }}
-          release-notes: ${{ steps.clean_release_notes.outputs.value }}
+          release-notes: ${{ steps.removed_titles.outputs.value }}
           latest-version: '[${{ steps.release_version.outputs.release_version }}]'
           compare-url-target-revision: ${{ github.event.release.target_commitish }}
       
