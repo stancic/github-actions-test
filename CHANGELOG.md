@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.15] - 2023-01-09
+
+- Add if statemenet for github actiion by @stancic in https://github.com/stancic/github-actions-test/pull/31
+- Change if statement by @stancic in https://github.com/stancic/github-actions-test/pull/32
 
 ## [1.0.14] - 2023-01-09
 
