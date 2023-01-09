@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.8] - 2023-01-09
+
+### What's Changed
+
+- Add regex parsing by @stancic in https://github.com/stancic/github-actions-test/pull/24
+
 ## [1.0.2] - 2022-12-23
 
 ### What's Changed
