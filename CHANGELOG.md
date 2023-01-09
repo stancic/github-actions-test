@@ -1,8 +1,5 @@
 # Changelog
 
-## [v1.1.0] - 2023-01-09
-
-- Add if statemenet for github actiion by @stancic in https://github.com/stancic/github-actions-test/pull/31
 
 ## [1.0.14] - 2023-01-09
 
