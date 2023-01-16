@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.16] - 2023-01-16
+
+- Fix whitespace by @stancic in https://github.com/stancic/github-actions-test/pull/33
+
 ## [1.0.15] - 2023-01-09
 
 - Add if statemenet for github actiion by @stancic in https://github.com/stancic/github-actions-test/pull/31
