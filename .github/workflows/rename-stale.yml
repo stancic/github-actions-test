@@ -8,15 +8,14 @@ name: 'Rename stale'
 #    - All developers.
 
 on: 
+  push:
   pull_request:
     types:
       - labeled
       - unlabeled
       - edited
-      - review_requested
-      - ready_for_review
       - reopened
-
+      - review_requested
   label:
     types:
       - created
@@ -24,26 +23,17 @@ on:
       - deleted
 
 permissions:
-  issues: write
   pull-requests: write
 
 jobs:
   add_stale_tag_to_title:
-    name: 'Add stale tag to tile if label has changed'
-    if: "contains(github.event.pull_request.labels.*.name, 'stale')"
+    name: 'Add stale tag to title if label has changed'
+    if: contains(github.event.pull_request.labels.*.name, 'stale')
     runs-on: ubuntu-latest
     steps:
       - uses: tzkhan/pr-update-action@v2
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          base-branch-regex: '[a-zA-Z\d-_.\\/]+'
           title-template: "[STALE] "
 
-  remove_stale_tag_from_title:
-    name: 'Remove stale tag to tile if label has changed'
-    if: "!contains(github.event.pull_request.labels.*.name, 'stale')"
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: tzkhan/pr-update-action@v2
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          title-template: ""

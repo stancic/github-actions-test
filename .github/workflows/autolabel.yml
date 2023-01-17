@@ -18,9 +18,40 @@ jobs:
   label_pull_request:
     name: 'Add labels to pull request'
     runs-on: ubuntu-latest
+    env:
+      DEVELOPMENT_URL: 'test url'
     steps:
-      - uses: actions/labeler@v4
+      - name: 'Label'
+        id: 'labeling'
+        uses: actions/labeler@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: 'Assign vlaja'
+        if: contains(github.event.pull_request.user.login, 'stancic')
+        run: echo "This PR is opened by ${{ github.event.pull_request.user.login }} ."
+        # uses: murs313/request-review@v1.0
+        # with:
+        #   token: ${{ secrets.GITHUB_TOKEN }}
+        #   reviewers: 'dinostancic'
 
-    
+      - name: 'Assign stancic'
+        if: contains(github.event.pull_request.user.login, 'vlaja')
+        run: echo "This PR is opened by vlaja."
+        # uses: murs313/request-review@v1.0
+        # with:
+        #   token: ${{ secrets.GITHUB_TOKEN }}
+        #   reviewers: 'dinostancic'
+
+      - name: 'Assign both vlaja and stancic'
+        if: "!contains(github.event.pull_request.user.login, 'stancic') && !contains(github.event.pull_request.user.login, 'vlaja')"
+        run: echo "This PR wasn't opened nor by vlaja nor by stancic."
+        # uses: murs313/request-review@v1.0
+        # with:
+        #   token: ${{ secrets.GITHUB_TOKEN }}
+        #   reviewers: 'dinostancic'  
+
+      
+
+
+
