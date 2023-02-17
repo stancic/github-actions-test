@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.19] - 2023-02-17
+
+- Add new action by @stancic in https://github.com/stancic/github-actions-test/pull/34
+- Some random changes testing by @stancic in https://github.com/stancic/github-actions-test/pull/35
+
 ## [1.0.18] - 2023-02-17
 
 - Fix title by by @stancic in https://github.com/stancic/github-actions-test/pull/33
