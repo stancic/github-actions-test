@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.18] - 2023-02-17
+
+- Fix title by by @stancic in https://github.com/stancic/github-actions-test/pull/33
+
+## [1.0.17] - 2023-02-16
+
+- Fix issue by by @stancic in https://github.com/stancic/github-actions-test/pull/33
+
 ## [1.0.16] - 2023-01-16
 
 - Fix whitespace by @stancic in https://github.com/stancic/github-actions-test/pull/33
