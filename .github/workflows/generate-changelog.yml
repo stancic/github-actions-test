@@ -100,6 +100,7 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
+          base: main
           branch: feature/changelog-change
           delete-branch: true
           title: 'Update CHANGELOG'
