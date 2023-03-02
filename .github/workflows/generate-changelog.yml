@@ -86,6 +86,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           # Push updated CHANGELOG to release target branch.
-          branch: ${{ github.event.release.target_commitish }}
+          branch: feature/changelog-change
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
