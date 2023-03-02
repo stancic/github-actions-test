@@ -93,29 +93,24 @@ jobs:
 
       - name: Create PR for Changelog
         id: create_pr
-        uses: peter-evans/create-pull-request@v4
+        uses: repo-sync/pull-request@v2
         with:
-          token: ${{ github.token }}
-          commit-message: Update CHANGELOG
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          signoff: false
-          base: main
-          branch: feature/changelog-change-${{ github.event.release.tag_name }}
-          title: 'Update CHANGELOG - Release [${{ github.event.release.tag_name }}]'
-          body: |
-            Update CHANGELOG with latest Release Notes
+          github_token: ${{ github.token }}
+          source_branch: "feature/changelog-change-${{ github.event.release.tag_name }}"
+          destination_branch: "main"
+          pr_title: "Update CHANGELOG - Release ${{ github.event.release.tag_name }}"
+          pr_body: "Update Changelog.md"
         
       - name: Auto approve CHANGELOG PR
-        if: steps.create_pr.outputs.pull-request-operation == 'created'
+        if: steps.create_pr.outputs.pr_created == 'true'
         uses: juliangruber/approve-pull-request-action@v2
         with:
           github-token: ${{ github.token }}
-          number: ${{ steps.create_pr.outputs.pull-request-number }}
+          number: ${{ steps.create_pr.outputs.pr_number }}
 
       - name: Automerge CHANGELOG PR 
-        if: steps.create_pr.outputs.pull-request-operation == 'created'
+        if: steps.create_pr.outputs.pr_created == 'true'
         uses: peter-evans/enable-pull-request-automerge@v2
         with:
           token: ${{ github.token }}
-          pull-request-number: ${{ steps.create_pr.outputs.pull-request-number }}
+          pull-request-number: ${{ steps.create_pr.outputs.pr_number }}
