@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.22] - 2023-03-02
+
+- Change changelog action by @stancic in https://github.com/stancic/github-actions-test/pull/37
+
 ## [1.0.19] - 2023-02-17
 
 - Add new action by @stancic in https://github.com/stancic/github-actions-test/pull/34
