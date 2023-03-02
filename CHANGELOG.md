@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.26] - 2023-03-02
+
+- Change used gh actions for pr cretaion by @stancic in https://github.com/stancic/github-actions-test/pull/42
+
 ## [1.0.22] - 2023-03-02
 
 - Change changelog action by @stancic in https://github.com/stancic/github-actions-test/pull/37
