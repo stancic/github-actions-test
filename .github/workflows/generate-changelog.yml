@@ -54,7 +54,7 @@ jobs:
       - name: Extract release version from git tag
         id: release_version
         env:
-          RELEASE_TAG_NAME: ${{github.event.release.tag_name}}
+          RELEASE_TAG_NAME: ${{ github.event.release.tag_name }}
         run: echo "::set-output name=release_version::${RELEASE_TAG_NAME##*-}"
 
       - name: Remove titles from release notes
@@ -87,7 +87,7 @@ jobs:
         with:
           # Push updated CHANGELOG to release target branch.
           create_branch: true
-          branch: feature/changelog-change
+          branch: feature/changelog-change-${{ github.event.release.tag_name }}
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
 
@@ -101,9 +101,9 @@ jobs:
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
           base: main
-          branch: feature/changelog-change
+          branch: feature/changelog-change-${{ github.event.release.tag_name }}
           delete-branch: true
-          title: 'Update CHANGELOG'
+          title: 'Update CHANGELOG - Release [${{ github.event.release.tag_name }}]'
           body: |
             Update CHANGELOG with latest Release Notes
         
