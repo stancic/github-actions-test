@@ -89,3 +89,32 @@ jobs:
           branch: feature/changelog-change
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
+
+      - name: Create PR for Changelog
+        id: create_pr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ github.token }}
+          commit-message: Update CHANGELOG
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
+          branch: example-patches
+          delete-branch: true
+          title: 'Update CHANGELOG'
+          body: |
+            Update CHANGELOG with latest Release Notes
+        
+      - name: Auto approve CHANGELOG PR
+        if: steps.cpr.outputs.pull-request-operation == 'created'
+        uses: juliangruber/approve-pull-request-action@v2
+        with:
+          github-token: ${{ github.token }}
+          number: ${{ steps.cpr.outputs.pull-request-number }}
+
+      - name: Automerge CHANGELOG PR 
+        if: steps.create_pr.outputs.pull-request-operation == 'created'
+        uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          token: ${{ github.token }}
+          pull-request-number: ${{ steps.create_pr.outputs.pull-request-number }}
