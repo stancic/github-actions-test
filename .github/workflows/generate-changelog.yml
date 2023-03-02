@@ -86,6 +86,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           # Push updated CHANGELOG to release target branch.
+          create_branch: true
           branch: feature/changelog-change
           commit_message: Update CHANGELOG
           file_pattern: CHANGELOG.md
@@ -99,18 +100,18 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           signoff: false
-          branch: example-patches
+          branch: feature/changelog-change
           delete-branch: true
           title: 'Update CHANGELOG'
           body: |
             Update CHANGELOG with latest Release Notes
         
       - name: Auto approve CHANGELOG PR
-        if: steps.cpr.outputs.pull-request-operation == 'created'
+        if: steps.create_pr.outputs.pull-request-operation == 'created'
         uses: juliangruber/approve-pull-request-action@v2
         with:
           github-token: ${{ github.token }}
-          number: ${{ steps.cpr.outputs.pull-request-number }}
+          number: ${{ steps.create_pr.outputs.pull-request-number }}
 
       - name: Automerge CHANGELOG PR 
         if: steps.create_pr.outputs.pull-request-operation == 'created'
