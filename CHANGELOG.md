@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.28] - 2023-03-02
+
+- Change automerge action by @stancic in https://github.com/stancic/github-actions-test/pull/51
+
 ## [1.0.22] - 2023-03-02
 
 - Change changelog action by @stancic in https://github.com/stancic/github-actions-test/pull/37
