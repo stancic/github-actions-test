@@ -101,12 +101,12 @@ jobs:
           pr_title: "Update CHANGELOG - Release ${{ github.event.release.tag_name }}"
           pr_body: "Update Changelog.md"
         
-      - name: Auto approve CHANGELOG PR
-        if: steps.create_pr.outputs.pr_created == 'true'
-        uses: juliangruber/approve-pull-request-action@v2
-        with:
-          github-token: ${{ github.token }}
-          number: ${{ steps.create_pr.outputs.pr_number }}
+      # - name: Auto approve CHANGELOG PR
+      #   if: steps.create_pr.outputs.pr_created == 'true'
+      #   uses: juliangruber/approve-pull-request-action@v2
+      #   with:
+      #     github-token: ${{ github.token }}
+      #     number: ${{ steps.create_pr.outputs.pr_number }}
 
       - name: Automerge CHANGELOG PR 
         if: steps.create_pr.outputs.pr_created == 'true'
