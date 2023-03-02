@@ -110,7 +110,7 @@ jobs:
 
       - name: Automerge CHANGELOG PR 
         if: steps.create_pr.outputs.pr_created == 'true'
-        uses: KeisukeYamashita/auto-pull-request-merge@v1
+        uses: nbrugger-tgm/merge-pr-action@v0.2.3
         with:
           token: ${{ github.token }}
-          pullRequestNumber: ${{ steps.create_pr.outputs.pr_number }}
+          pull_request: ${{ steps.create_pr.outputs.pr_number }}
