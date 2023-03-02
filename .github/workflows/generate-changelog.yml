@@ -102,7 +102,6 @@ jobs:
           signoff: false
           base: main
           branch: feature/changelog-change-${{ github.event.release.tag_name }}
-          delete-branch: true
           title: 'Update CHANGELOG - Release [${{ github.event.release.tag_name }}]'
           body: |
             Update CHANGELOG with latest Release Notes
