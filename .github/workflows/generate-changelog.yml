@@ -1,4 +1,4 @@
-name: "Generate changelog"
+name: 'Generate changelog'
 
 # ** What it does? **
 #    - Generate changelogs for each release.
@@ -9,7 +9,7 @@ name: "Generate changelog"
 
 on:
   release:
-    types: 
+    types:
       - published
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
         id: check_files
         uses: andstor/file-existence-action@v2
         with:
-          files: "CHANGELOG.md"
+          files: 'CHANGELOG.md'
 
       - name: Create CHANGELOG.md
         if: steps.check_files.outputs.files_exists == 'false'
@@ -44,7 +44,6 @@ jobs:
           file: 'CHANGELOG.md'
           content: |
             # Changelog
-      
 
       - name: Extract release date from git tag
         id: release_date
@@ -63,7 +62,7 @@ jobs:
         with:
           value: ${{ github.event.release.body }}
           regex: '\#{2}\s\b.*'
-          replacement: ""
+          replacement: ''
 
       - name: Remove trailing full changelog link from release notes
         id: clean_release_notes
@@ -71,8 +70,8 @@ jobs:
         with:
           value: ${{ steps.removed_titles.outputs.value }}
           regex: '(.\*.*)'
-          replacement: ""
-      
+          replacement: ''
+
       - name: Update Changelog
         uses: stefanzweifel/changelog-updater-action@v1
         with:
@@ -96,21 +95,7 @@ jobs:
         uses: repo-sync/pull-request@v2
         with:
           github_token: ${{ github.token }}
-          source_branch: "feature/changelog-change-${{ github.event.release.tag_name }}"
-          destination_branch: "main"
-          pr_title: "Update CHANGELOG - Release ${{ github.event.release.tag_name }}"
-          pr_body: "Update Changelog.md"
-        
-      # - name: Auto approve CHANGELOG PR
-      #   if: steps.create_pr.outputs.pr_created == 'true'
-      #   uses: juliangruber/approve-pull-request-action@v2
-      #   with:
-      #     github-token: ${{ github.token }}
-      #     number: ${{ steps.create_pr.outputs.pr_number }}
-
-      - name: Automerge CHANGELOG PR 
-        if: steps.create_pr.outputs.pr_created == 'true'
-        uses: nbrugger-tgm/merge-pr-action@v0.2.3
-        with:
-          token: ${{ github.token }}
-          pull_request: ${{ steps.create_pr.outputs.pr_number }}
+          source_branch: 'feature/changelog-change-${{ github.event.release.tag_name }}'
+          destination_branch: 'main'
+          pr_title: 'Update CHANGELOG - Release ${{ github.event.release.tag_name }}'
+          pr_body: 'Update Changelog.md'
