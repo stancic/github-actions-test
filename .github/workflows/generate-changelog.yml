@@ -11,8 +11,7 @@ on:
   push:
     tags:
       - 'v*'
-    tags-ignore:
-      - '*-rc-*'
+      - '!*-rc-*'
 
 jobs:
   update:
