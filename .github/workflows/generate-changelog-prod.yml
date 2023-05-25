@@ -1,4 +1,4 @@
-name: 'Generate changelog ACC'
+name: 'Generate changelog PROD'
 
 # ** What it does? **
 #    - Generate changelogs for each release.
@@ -10,11 +10,12 @@ name: 'Generate changelog ACC'
 on:
   push:
     tags:
-      - 'v*-rc-*'
+      - 'v*'
+      - '!v*-rc-*'
 
 jobs:
   update:
-    name: 'Generate changelog ACC'
+    name: 'Generate changelog PROD'
     runs-on: ubuntu-latest
 
     steps:
