@@ -10,8 +10,8 @@ name: 'Generate changelog'
 on:
   push:
     tags:
-      - 'v*'
-      - '!v*-rc-*'
+      - '*-rc-*'
+      - '!v*'
 
 jobs:
   update:
