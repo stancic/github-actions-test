@@ -8,9 +8,11 @@ name: 'Generate changelog'
 #    - All contributors.
 
 on:
-  release:
-    types:
-      - published
+  push:
+    tags:
+      - 'v*'
+    tags-ignore:
+      - '*-rc-*'
 
 jobs:
   update:
