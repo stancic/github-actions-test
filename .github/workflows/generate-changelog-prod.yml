@@ -45,23 +45,6 @@ jobs:
         id: create_pr
         uses: peter-evans/create-pull-request@v6
         with:
+          token: ${{ secrets.PAT }}
           title: 'Update CHANGELOG - Release ${{ github.event.release.tag_name }}'
           body: 'Update Changelog.md'
-
-      # Merge the PR if all checks pass
-      - name: Merge PR
-        # This ensures the step runs only if all previous steps were successful
-        if: success()
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const { context, github } = require('@actions/github');
-            const pull_request_number = context.payload.pull_request.number;
-            await github.pulls.merge({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: pull_request_number,
-              merge_method: 'rebase'
-            });
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
