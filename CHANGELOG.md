@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.4.3 - 2024-06-27
+
+### What's Changed
+
+* Change checkout CMON MAN by @stancic in https://github.com/stancic/github-actions-test/pull/69
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/v1.4.2...v1.4.3
+
 ## [1.0.30] - 2023-04-14
 
 - Change action by @stancic in https://github.com/stancic/github-actions-test/pull/56
