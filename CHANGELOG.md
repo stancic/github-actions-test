@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.5.0 - 2024-07-01
+
+### What's Changed
+
+* Add new action by @stancic in https://github.com/stancic/github-actions-test/pull/70
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/v1.4.3...v1.5.0
+
 ## v1.4.3 - 2024-06-27
 
 ### What's Changed
