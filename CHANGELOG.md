@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.6.0 - 2024-07-02
+
+### What's Changed
+
+* Add how calendar event is triggered by @stancic in https://github.com/stancic/github-actions-test/pull/71
+
+**Full Changelog**: https://github.com/stancic/github-actions-test/compare/v1.5.0...v1.6.0
+
 ## v1.5.0 - 2024-07-01
 
 ### What's Changed
