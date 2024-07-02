@@ -1,8 +1,10 @@
 name: Add Google Calendar Event on Release
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v*'
+      - '!v*-rc-*'
 
 jobs:
   add-event-to-google-calendar:
@@ -12,11 +14,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: 'Fetch latest release'
+        id: fetch-latest-release
+        uses: gregziegan/fetch-latest-release@v2.0.0
+        with:
+          github_token: ${{ github.token }}
+
       - name: Add Google Calendar Event
         uses: stancic/create-google-calendar-event@v1.2.1
         with:
           service_account_client_email: ${{ secrets.SERVICE_ACCOUNT_CLIENT_EMAIL }}
           service_account_client_private_key: ${{ secrets.SERVICE_ACCOUNT_CLIENT_PRIVATE_KEY }}
           calendar_id: ${{ secrets.GOOGLE_CALENDAR_ID }}
-          summary: ${{ github.event.release.name }}
-          description: ${{ github.event.release.body }}
+          summary: ${{ steps.fetch-latest-release.outputs.name }}
+          description: ${{ steps.fetch-latest-release.outputs.body }}
